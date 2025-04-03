@@ -1,59 +1,40 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=1920"/>
-    <meta name="description"
-          content="Tizen Download API Demo" />
-
-    <title>Tizen Download API</title>
-
-    <script type='text/javascript' src='$WEBAPIS/webapis/webapis.js'></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmi Store</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-    <h1>Tizen Download API</h1>
-
-    <div class="left">
-        <h2>Available buttons/actions:</h2>
-
-        <div>
-            1 - Downloaded file lists<br>
-            2 - Start download - small file<br>
-            3 - Start download - large file<br>
-            Pause - Pause download<br>
-            Play - Resume download<br>
-            Stop - Cancel download<br>
-            0 - Clear logs
-        </div>
-
-        <div id="progress" class="progress">
-            <div id="bar" class="bar"></div>
-        </div>
-
-        <fieldset>
-            <legend>Downloaded files:</legend>
-            <div id="fileList" class="logs"></div>
-        </fieldset>
-
-        <fieldset>
-            <legend>Logs</legend>
-            <div id="logs" class="logs"></div>
-        </fieldset>
+    <header>
+        <h1>Welcome to Lakshmi Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header><section id="products">
+    <h2>Our Products</h2>
+    <div class="product" id="product1">
+        <p>Product 1 - $10</p>
+        <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
     </div>
-    <div class="right">
-        <h2>Info</h2>
-
-        <p>This application demonstrates the usage of Tizen download API</p>
-
-        <p>The application downloads files from <code>http://techslides.com</code> and <code>http://download.blender.org</code>. If these domains are not accessible it will not work.<br>
-
-            You can change the source location of files to download by changing the contents of <code>url1</code> and <code>url2</code> variables in <code>main.js</code> file</cide></p>
+    <div class="product" id="product2">
+        <p>Product 2 - $20</p>
+        <button onclick="addToCart('Product 2', 20)">Add to Cart</button>
     </div>
+</section>
 
-    <script src="main.js"></script>
+<section id="cart">
+    <h2>Shopping Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: $<span id="total">0</span></p>
+</section>
+
+<script src="script.js"></script>
+
 </body>
 </html>
