@@ -1,59 +1,62 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=1920"/>
-    <meta name="description"
-          content="Tizen Download API Demo" />
-
-    <title>Tizen Download API</title>
-
-    <script type='text/javascript' src='$WEBAPIS/webapis/webapis.js'></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmi Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
-
 <body>
-
-    <h1>Tizen Download API</h1>
-
-    <div class="left">
-        <h2>Available buttons/actions:</h2>
-
-        <div>
-            1 - Downloaded file lists<br>
-            2 - Start download - small file<br>
-            3 - Start download - large file<br>
-            Pause - Pause download<br>
-            Play - Resume download<br>
-            Stop - Cancel download<br>
-            0 - Clear logs
-        </div>
-
-        <div id="progress" class="progress">
-            <div id="bar" class="bar"></div>
-        </div>
-
-        <fieldset>
-            <legend>Downloaded files:</legend>
-            <div id="fileList" class="logs"></div>
-        </fieldset>
-
-        <fieldset>
-            <legend>Logs</legend>
-            <div id="logs" class="logs"></div>
-        </fieldset>
+    <header>
+        <h1>Welcome to Lakshmi Store</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header><section>
+    <h2>Featured Products</h2>
+    <div class="product">
+        <img src="product1.jpg" alt="Product 1">
+        <h3>Product Name</h3>
+        <p>$20.00</p>
+        <button onclick="payNow()">Buy Now</button>
     </div>
-    <div class="right">
-        <h2>Info</h2>
+</section>
 
-        <p>This application demonstrates the usage of Tizen download API</p>
+<footer>
+    <p>&copy; 2025 Lakshmi Store. All rights reserved.</p>
+</footer>
 
-        <p>The application downloads files from <code>http://techslides.com</code> and <code>http://download.blender.org</code>. If these domains are not accessible it will not work.<br>
+<script>
+    function payNow() {
+        var options = {
+            "key": "YOUR_RAZORPAY_KEY", // Replace with your Razorpay API key
+            "amount": "2000", // Amount in paise (e.g., 20.00 INR = 2000 paise)
+            "currency": "INR",
+            "name": "Lakshmi Store",
+            "description": "Purchase of Product",
+            "image": "logo.png",
+            "handler": function (response) {
+                alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+            },
+            "prefill": {
+                "name": "Customer Name",
+                "email": "customer@example.com",
+                "contact": "9999999999"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+</script>
 
-            You can change the source location of files to download by changing the contents of <code>url1</code> and <code>url2</code> variables in <code>main.js</code> file</cide></p>
-    </div>
-
-    <script src="main.js"></script>
 </body>
 </html>
